@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Klass {
 
     public static final String STUDENT_NOT_IN_CLASS_WHEN_ASSIGN_LEADER_MESSAGE = "It is not one of us.";
+
     private int number;
 
     private Student leader;

@@ -1,5 +1,7 @@
 package oo;
 
+import java.util.Objects;
+
 public class Klass {
 
     private int number;
@@ -15,5 +17,8 @@ public class Klass {
         return this.number == that.number;
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
+    }
 }

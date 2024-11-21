@@ -16,6 +16,12 @@ public class Klass {
         return !Objects.isNull(leader) && student.isIn(this) && leader.equals(student);
     }
 
+    public void assignLeader(Student student) {
+        if (Objects.isNull(student)) return;
+        if (!student.isIn(this)) {System.out.print("It is not one of us."); return; }
+        this.leader = student;
+    }
+
     public int getNumber() {
         return number;
     }

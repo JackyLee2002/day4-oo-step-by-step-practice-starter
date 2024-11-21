@@ -12,7 +12,8 @@ public class Teacher extends Person implements KlassObserver {
     public static final String COMMA_WITH_SPACE = ", ";
     public static final String FULLSTOPS = ".";
     public static final String TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS = " I teach Class ";
-    private final List<Klass> klass = new ArrayList<>();
+
+    private final List<Klass> klasses = new ArrayList<>();
 
     public Teacher(Integer id, String name, Integer age) {
         super(id, name, age);
@@ -26,8 +27,8 @@ public class Teacher extends Person implements KlassObserver {
     }
 
     private String appendTeacherIntroductionMessage() {
-        if (!klass.isEmpty()) {
-            return TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS + klass.stream()
+        if (!klasses.isEmpty()) {
+            return TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS + klasses.stream()
                     .map(i -> String.valueOf(i.getNumber()))
                     .collect(Collectors.joining(COMMA_WITH_SPACE)) + FULLSTOPS;
         }
@@ -41,13 +42,13 @@ public class Teacher extends Person implements KlassObserver {
 
 
     public void assignTo(Klass klass) {
-        if (this.klass.stream().noneMatch(i -> i.equals(klass))) {
-            this.klass.add(klass);
+        if (this.klasses.stream().noneMatch(i -> i.equals(klass))) {
+            this.klasses.add(klass);
         }
     }
 
     public boolean belongsTo(Klass klass) {
-        return !this.klass.isEmpty() && !Objects.isNull(klass) && this.klass.contains(klass);
+        return !this.klasses.isEmpty() && !Objects.isNull(klass) && this.klasses.contains(klass);
     }
 
     public boolean isTeaching(Student student) {

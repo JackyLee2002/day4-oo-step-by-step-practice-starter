@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person implements KlassObserver {
 
-    public static final String TEACHER_INTRODUCTION_MESSAGE = "My name is %s. I am %d years old. I am a teacher.";
+    public static final String TEACHER_INTRODUCTION_MESSAGE =  " I am a teacher.";
     public static final String TEACHER_OBSERVER_MESSAGE = "I am %s, teacher of Class %d. I know %s become Leader.";
     public static final String COMMA_WITH_SPACE = ", ";
     public static final String FULLSTOPS = ".";
@@ -21,7 +21,7 @@ public class Teacher extends Person implements KlassObserver {
 
     @Override
     public String introduce() {
-        String teacherIntroduction = String.format(TEACHER_INTRODUCTION_MESSAGE, name, age);
+        String teacherIntroduction = String.format(super.introduce() + TEACHER_INTRODUCTION_MESSAGE, name, age);
         teacherIntroduction += appendTeacherIntroductionMessage();
         return teacherIntroduction;
     }

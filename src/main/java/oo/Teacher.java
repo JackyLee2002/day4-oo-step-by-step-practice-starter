@@ -21,7 +21,7 @@ public class Teacher extends Person implements KlassObserver {
     @Override
     public String introduce() {
         String teacherIntroduction = String.format(TEACHER_INTRODUCTION_MESSAGE, name, age);
-        if (!Objects.isNull(klass) && !klass.isEmpty()) {
+        if (!klass.isEmpty()) {
             teacherIntroduction += TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS + klass.stream()
                     .map(i -> String.valueOf(i.getNumber()))
                     .collect(Collectors.joining(COMMA_WITH_SPACE)) + FULLSTOPS;

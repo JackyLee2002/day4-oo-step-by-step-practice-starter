@@ -4,6 +4,10 @@ import java.util.Objects;
 
 public class Student extends Person implements KlassObserver {
 
+    public static final String STUDENT_INTRODUCTION_MESSAGE = "My name is %s. I am %d years old. I am a student.";
+    public static final String STUDENT_INTODUCTION_IF_IS_LEADER = " I am the leader of class %d.";
+    public static final String STUDENT_INTRODUCTION_IF_IN_CLASS = " I am in class %d.";
+    public static final String STUDENT_OBSERVER_UPDATE_MESSAGE = "I am %s, student of Class %d. I know %s become Leader.%n";
     private Klass klass;
 
     public Student(Integer id, String name, Integer age) {
@@ -12,11 +16,11 @@ public class Student extends Person implements KlassObserver {
 
     @Override
     public String introduce() {
-        String studentIntroduction = String.format("My name is %s. I am %d years old. I am a student.", name, age);
+        String studentIntroduction = String.format(STUDENT_INTRODUCTION_MESSAGE, name, age);
         if (!Objects.isNull(klass)) {
             studentIntroduction += klass.isLeader(this)
-                    ? String.format(" I am the leader of class %d.", klass.getNumber())
-                    : String.format(" I am in class %d.", klass.getNumber());
+                    ? String.format(STUDENT_INTODUCTION_IF_IS_LEADER, klass.getNumber())
+                    : String.format(STUDENT_INTRODUCTION_IF_IN_CLASS, klass.getNumber());
         }
         return studentIntroduction;
     }
@@ -35,6 +39,6 @@ public class Student extends Person implements KlassObserver {
 
     @Override
     public void update(Klass klass) {
-        System.out.printf("I am %s, student of Class %d. I know %s become Leader.%n", name, klass.getNumber(), klass.getLeader().getName());
+        System.out.printf(STUDENT_OBSERVER_UPDATE_MESSAGE, name, klass.getNumber(), klass.getLeader().getName());
     }
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements KlassObserver {
 
     private List<Klass> klass = new ArrayList<>();
 
@@ -22,6 +22,11 @@ public class Teacher extends Person {
                     .collect(Collectors.joining(", ")) + ".";
         }
         return teacherIntroduction;
+    }
+
+    @Override
+    public void update(Klass klass) {
+        System.out.println(String.format("I am %s, teacher of Class %d. I know %s become Leader.", name, klass.getNumber(), klass.getLeader().getName()));
     }
 
 

@@ -19,6 +19,12 @@ public class Person {
         return String.format("My name is %s. I am %d years old.", name, age);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void update(Klass klass) {}
+
     @Override
     public boolean equals(Object objectToBeCompared) {
         if (this == objectToBeCompared) return true;

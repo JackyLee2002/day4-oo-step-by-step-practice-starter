@@ -2,7 +2,7 @@ package oo;
 
 import java.util.Objects;
 
-public class Student extends Person {
+public class Student extends Person implements KlassObserver {
 
     private Klass klass;
 
@@ -31,5 +31,10 @@ public class Student extends Person {
 
     public Klass getKlass() {
         return klass;
+    }
+
+    @Override
+    public void update(Klass klass) {
+        System.out.println(String.format("I am %s, student of Class %d. I know %s become Leader.", name, klass.getNumber(), klass.getLeader().getName()));
     }
 }

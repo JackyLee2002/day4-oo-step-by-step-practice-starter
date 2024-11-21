@@ -8,7 +8,11 @@ import java.util.stream.Collectors;
 public class Teacher extends Person implements KlassObserver {
 
     public static final String TEACHER_INTRODUCTION_MESSAGE = "My name is %s. I am %d years old. I am a teacher.";
-    private List<Klass> klass = new ArrayList<>();
+    public static final String TEACHER_OBSERVER_MESSAGE = "I am %s, teacher of Class %d. I know %s become Leader.";
+    public static final String COMMA_WITH_SPACE = ", ";
+    public static final String FULLSTOPS = ".";
+    public static final String TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS = " I teach Class ";
+    private final List<Klass> klass = new ArrayList<>();
 
     public Teacher(Integer id, String name, Integer age) {
         super(id, name, age);
@@ -18,16 +22,16 @@ public class Teacher extends Person implements KlassObserver {
     public String introduce() {
         String teacherIntroduction = String.format(TEACHER_INTRODUCTION_MESSAGE, name, age);
         if (!Objects.isNull(klass) && !klass.isEmpty()) {
-            teacherIntroduction += " I teach Class " + klass.stream()
+            teacherIntroduction += TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS + klass.stream()
                     .map(i -> String.valueOf(i.getNumber()))
-                    .collect(Collectors.joining(", ")) + ".";
+                    .collect(Collectors.joining(COMMA_WITH_SPACE)) + FULLSTOPS;
         }
         return teacherIntroduction;
     }
 
     @Override
     public void update(Klass klass) {
-        System.out.println(String.format("I am %s, teacher of Class %d. I know %s become Leader.", name, klass.getNumber(), klass.getLeader().getName()));
+        System.out.println(String.format(TEACHER_OBSERVER_MESSAGE, name, klass.getNumber(), klass.getLeader().getName()));
     }
 
 

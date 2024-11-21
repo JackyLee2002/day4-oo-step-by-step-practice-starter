@@ -8,6 +8,7 @@ public class Student extends Person implements KlassObserver {
     public static final String STUDENT_INTRODUCTION_IF_IS_LEADER = " I am the leader of class %d.";
     public static final String STUDENT_INTRODUCTION_IF_IN_CLASS = " I am in class %d.";
     public static final String STUDENT_OBSERVER_UPDATE_MESSAGE = "I am %s, student of Class %d. I know %s become Leader.%n";
+
     private Klass klass;
 
     public Student(Integer id, String name, Integer age) {

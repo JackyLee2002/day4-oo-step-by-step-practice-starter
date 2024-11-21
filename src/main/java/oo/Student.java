@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Student extends Person implements KlassObserver {
 
     public static final String STUDENT_INTRODUCTION_MESSAGE = "My name is %s. I am %d years old. I am a student.";
-    public static final String STUDENT_INTODUCTION_IF_IS_LEADER = " I am the leader of class %d.";
+    public static final String STUDENT_INTRODUCTION_IF_IS_LEADER = " I am the leader of class %d.";
     public static final String STUDENT_INTRODUCTION_IF_IN_CLASS = " I am in class %d.";
     public static final String STUDENT_OBSERVER_UPDATE_MESSAGE = "I am %s, student of Class %d. I know %s become Leader.%n";
     private Klass klass;
@@ -19,7 +19,7 @@ public class Student extends Person implements KlassObserver {
         String studentIntroduction = String.format(STUDENT_INTRODUCTION_MESSAGE, name, age);
         if (!Objects.isNull(klass)) {
             studentIntroduction += klass.isLeader(this)
-                    ? String.format(STUDENT_INTODUCTION_IF_IS_LEADER, klass.getNumber())
+                    ? String.format(STUDENT_INTRODUCTION_IF_IS_LEADER, klass.getNumber())
                     : String.format(STUDENT_INTRODUCTION_IF_IN_CLASS, klass.getNumber());
         }
         return studentIntroduction;

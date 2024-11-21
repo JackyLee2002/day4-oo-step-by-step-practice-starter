@@ -31,4 +31,9 @@ public class Teacher extends Person {
     public boolean belongsTo(Klass klass) {
         return !this.klass.isEmpty() && !Objects.isNull(klass) && this.klass.contains(klass);
     }
+
+    public boolean isTeaching(Student student) {
+        return belongsTo(student.getKlass());
+    }
+
 }

@@ -11,7 +11,13 @@ public class Student extends Person{
     }
 
     public String introduce() {
-        return String.format("My name is %s. I am %d years old. I am a student.", name, age);
+        String studentIntroduction = String.format("My name is %s. I am %d years old. I am a student.", name, age);
+        if (!Objects.isNull(klass)){
+            studentIntroduction += String.format(" I am in class %d.", klass.getNumber());
+        }
+        return studentIntroduction;
+
+
     }
 
     public void join(Klass klass){

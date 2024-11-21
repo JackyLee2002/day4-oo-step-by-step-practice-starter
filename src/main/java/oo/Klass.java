@@ -10,6 +10,10 @@ public class Klass {
         this.number = number;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

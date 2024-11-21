@@ -3,11 +3,11 @@ package oo;
 import java.util.Objects;
 
 public class Person {
-    private Integer id;
+    protected Integer id;
 
-    private String name;
+    protected String name;
 
-    private Integer age;
+    protected Integer age;
 
     public Person(Integer id, String name, Integer age) {
         this.id = id;

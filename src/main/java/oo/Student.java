@@ -17,12 +17,16 @@ public class Student extends Person implements KlassObserver {
     @Override
     public String introduce() {
         String studentIntroduction = String.format(STUDENT_INTRODUCTION_MESSAGE, name, age);
-        if (!Objects.isNull(klass)) {
-            studentIntroduction += klass.isLeader(this)
-                    ? String.format(STUDENT_INTRODUCTION_IF_IS_LEADER, klass.getNumber())
-                    : String.format(STUDENT_INTRODUCTION_IF_IN_CLASS, klass.getNumber());
-        }
+        studentIntroduction += appendStudentIntroductionMessage();
         return studentIntroduction;
+    }
+
+    private String appendStudentIntroductionMessage() {
+        if (!Objects.isNull(klass)) {
+            return (klass.isLeader(this)
+                    ? String.format(STUDENT_INTRODUCTION_IF_IS_LEADER, klass.getNumber())
+                    : String.format(STUDENT_INTRODUCTION_IF_IN_CLASS, klass.getNumber()));
+        }
     }
 
     public void join(Klass klass) {

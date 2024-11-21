@@ -3,6 +3,7 @@ package oo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Teacher extends Person {
 
@@ -16,7 +17,9 @@ public class Teacher extends Person {
     public String introduce() {
         String teacherIntroduction = String.format("My name is %s. I am %d years old. I am a teacher.", name, age);
         if (!Objects.isNull(klass) && !klass.isEmpty()) {
-            teacherIntroduction += String.format(" I teach Class %s.", String.join(", ", klass.stream().map(i -> String.valueOf(i.getNumber())).toArray(String[]::new)));
+            teacherIntroduction += " I teach Class " + klass.stream()
+                    .map(i -> String.valueOf(i.getNumber()))
+                    .collect(Collectors.joining(", ")) + ".";
         }
         return teacherIntroduction;
     }

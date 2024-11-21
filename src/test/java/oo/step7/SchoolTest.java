@@ -39,7 +39,7 @@ public class SchoolTest {
     }
 
         @Test
-        public void testStartSchoolWithNoTeachersAndStudents() {
+        public void shouldReturnCorrectString_whenStartSchool_WithNoOne() {
             List<Teacher> teachers = Collections.emptyList();
             List<Student> students = Collections.emptyList();
             School school = new School(teachers, students);
@@ -51,7 +51,7 @@ public class SchoolTest {
         }
 
         @Test
-        public void testStartSchoolWithOnlyTeachers() {
+        public void shouldReturnCorrectString_whenStartSchool_WithOnlyTeachers() {
             List<Teacher> teachers = Arrays.asList(new Teacher(1, "Alice", 30), new Teacher(2, "Bob", 40));
             List<Student> students = Collections.emptyList();
             School school = new School(teachers, students);
@@ -64,7 +64,7 @@ public class SchoolTest {
         }
 
         @Test
-        public void testStartSchoolWithOnlyStudents() {
+        public void shouldReturnCorrectString_whenStartSchool_WithOnlyStudents() {
             List<Teacher> teachers = Collections.emptyList();
             List<Student> students = Arrays.asList(new Student(1, "Charlie", 18), new Student(2, "David", 19));
             School school = new School(teachers, students);

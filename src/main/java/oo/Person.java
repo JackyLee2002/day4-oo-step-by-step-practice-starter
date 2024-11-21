@@ -27,6 +27,8 @@ public class Person {
         return Objects.equals(this.id, objectCastedAsPerson.id);
     }
 
-
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

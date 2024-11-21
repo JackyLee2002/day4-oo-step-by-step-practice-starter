@@ -13,17 +13,17 @@ public class Teacher extends Person {
     }
 
     @Override
-    public String introduce(){
+    public String introduce() {
         String teacherIntroduction = String.format("My name is %s. I am %d years old. I am a teacher.", name, age);
-        if(!Objects.isNull(klass) && !klass.isEmpty()){
-            teacherIntroduction += String.format(" I teach Class %s.", String.join(", ",klass.stream().map(i -> String.valueOf(i.getNumber())).toArray(String[]::new)));
+        if (!Objects.isNull(klass) && !klass.isEmpty()) {
+            teacherIntroduction += String.format(" I teach Class %s.", String.join(", ", klass.stream().map(i -> String.valueOf(i.getNumber())).toArray(String[]::new)));
         }
         return teacherIntroduction;
     }
 
 
     public void assignTo(Klass klass) {
-        if(this.klass.stream().noneMatch(i -> i.equals(klass))) {
+        if (this.klass.stream().noneMatch(i -> i.equals(klass))) {
             this.klass.add(klass);
         }
     }

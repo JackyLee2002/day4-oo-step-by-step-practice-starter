@@ -18,7 +18,10 @@ public class Klass {
 
     public void assignLeader(Student student) {
         if (Objects.isNull(student)) return;
-        if (!student.isIn(this)) {System.out.print("It is not one of us."); return; }
+        if (!student.isIn(this)) {
+            System.out.print("It is not one of us.");
+            return;
+        }
         this.leader = student;
     }
 

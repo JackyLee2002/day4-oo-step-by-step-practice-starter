@@ -18,10 +18,10 @@ public class Student extends Person {
                     ? String.format(" I am the leader of class %d.", klass.getNumber())
                     : String.format(" I am in class %d.", klass.getNumber());
         }
-    return studentIntroduction;
+        return studentIntroduction;
     }
 
-    public void join(Klass klass){
+    public void join(Klass klass) {
         this.klass = klass;
     }
 

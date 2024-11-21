@@ -13,10 +13,12 @@ public class Student extends Person {
     @Override
     public String introduce() {
         String studentIntroduction = String.format("My name is %s. I am %d years old. I am a student.", name, age);
-        if (!Objects.isNull(klass)){
-            studentIntroduction += String.format(" I am in class %d.", klass.getNumber());
+        if (!Objects.isNull(klass)) {
+            studentIntroduction += klass.isLeader(this)
+                    ? String.format(" I am the leader of class %d.", klass.getNumber())
+                    : String.format(" I am in class %d.", klass.getNumber());
         }
-        return studentIntroduction;
+    return studentIntroduction;
     }
 
     public void join(Klass klass){

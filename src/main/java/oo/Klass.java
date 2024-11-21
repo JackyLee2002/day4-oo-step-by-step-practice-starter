@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Klass {
 
+    public static final String STUDENT_NOT_IN_CLASS_WHEN_ASSIGN_LEADER_MESSAGE = "It is not one of us.";
     private int number;
 
     private Student leader;
@@ -21,13 +22,18 @@ public class Klass {
     }
 
     public void assignLeader(Student student) {
-        if (Objects.isNull(student)) return;
-        if (!student.isIn(this)) {
-            System.out.print("It is not one of us.");
-            return;
-        }
+        if (canAssignLeader(student)) return;
         this.leader = student;
         notifyAllObservers();
+    }
+
+    private boolean canAssignLeader(Student student) {
+        if (Objects.isNull(student)) return true;
+        if (!student.isIn(this)) {
+            System.out.print(STUDENT_NOT_IN_CLASS_WHEN_ASSIGN_LEADER_MESSAGE);
+            return true;
+        }
+        return false;
     }
 
     private void notifyAllObservers() {

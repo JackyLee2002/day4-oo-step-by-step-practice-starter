@@ -6,8 +6,14 @@ public class Klass {
 
     private int number;
 
+    private Student leader;
+
     public Klass(int number) {
         this.number = number;
+    }
+
+    public boolean isLeader(Student student) {
+        return !Objects.isNull(leader) && student.isIn(this) && leader.equals(student);
     }
 
     public int getNumber() {

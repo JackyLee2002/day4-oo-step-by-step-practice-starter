@@ -3,6 +3,7 @@ package oo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Klass {
 
@@ -37,8 +38,9 @@ public class Klass {
     }
 
     private void notifyAllObservers() {
-        klassObservers.stream()
-                .forEach(person -> person.update(this));
+        klassObservers = klassObservers.stream()
+                .peek(person -> person.update(this))
+                .collect(Collectors.toList());
     }
 
     public void attach(Person person) {

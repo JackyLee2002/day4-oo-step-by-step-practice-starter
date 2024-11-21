@@ -23,10 +23,11 @@ public class Student extends Person implements KlassObserver {
 
     private String appendStudentIntroductionMessage() {
         if (!Objects.isNull(klass)) {
-            return (klass.isLeader(this)
+            return klass.isLeader(this)
                     ? String.format(STUDENT_INTRODUCTION_IF_IS_LEADER, klass.getNumber())
-                    : String.format(STUDENT_INTRODUCTION_IF_IN_CLASS, klass.getNumber()));
+                    : String.format(STUDENT_INTRODUCTION_IF_IN_CLASS, klass.getNumber());
         }
+        return "";
     }
 
     public void join(Klass klass) {

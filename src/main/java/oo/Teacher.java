@@ -21,12 +21,17 @@ public class Teacher extends Person implements KlassObserver {
     @Override
     public String introduce() {
         String teacherIntroduction = String.format(TEACHER_INTRODUCTION_MESSAGE, name, age);
+        teacherIntroduction += appendTeacherIntroductionMessage();
+        return teacherIntroduction;
+    }
+
+    private String appendTeacherIntroductionMessage() {
         if (!klass.isEmpty()) {
-            teacherIntroduction += TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS + klass.stream()
+            return TEACHER_INTRODUCTION_START_IF_TEACHING_CLASS + klass.stream()
                     .map(i -> String.valueOf(i.getNumber()))
                     .collect(Collectors.joining(COMMA_WITH_SPACE)) + FULLSTOPS;
         }
-        return teacherIntroduction;
+        return "";
     }
 
     @Override

@@ -35,6 +35,6 @@ public class Student extends Person implements KlassObserver {
 
     @Override
     public void update(Klass klass) {
-        System.out.println(String.format("I am %s, student of Class %d. I know %s become Leader.", name, klass.getNumber(), klass.getLeader().getName()));
+        System.out.printf("I am %s, student of Class %d. I know %s become Leader.%n", name, klass.getNumber(), klass.getLeader().getName());
     }
 }

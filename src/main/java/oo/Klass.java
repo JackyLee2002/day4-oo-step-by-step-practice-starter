@@ -35,8 +35,8 @@ public class Klass {
                 .forEach(person -> person.update(this));
     }
 
-    public void attach(Person person){
-        if(!Objects.isNull(person) && !klassObservers.contains(person)) klassObservers.add(person);
+    public void attach(Person person) {
+        if (!Objects.isNull(person) && !klassObservers.contains(person)) klassObservers.add(person);
     }
 
     public int getNumber() {

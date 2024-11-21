@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class Teacher extends Person implements KlassObserver {
 
+    public static final String TEACHER_INTRODUCTION_MESSAGE = "My name is %s. I am %d years old. I am a teacher.";
     private List<Klass> klass = new ArrayList<>();
 
     public Teacher(Integer id, String name, Integer age) {
@@ -15,7 +16,7 @@ public class Teacher extends Person implements KlassObserver {
 
     @Override
     public String introduce() {
-        String teacherIntroduction = String.format("My name is %s. I am %d years old. I am a teacher.", name, age);
+        String teacherIntroduction = String.format(TEACHER_INTRODUCTION_MESSAGE, name, age);
         if (!Objects.isNull(klass) && !klass.isEmpty()) {
             teacherIntroduction += " I teach Class " + klass.stream()
                     .map(i -> String.valueOf(i.getNumber()))

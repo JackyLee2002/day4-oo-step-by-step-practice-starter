@@ -3,6 +3,7 @@ package oo;
 import java.util.Objects;
 
 public class Person {
+    public static final String PERSON_INTRODUCTION_MESSAGE = "My name is %s. I am %d years old.";
     protected Integer id;
 
     protected String name;
@@ -16,7 +17,7 @@ public class Person {
     }
 
     public String introduce() {
-        return String.format("My name is %s. I am %d years old.", name, age);
+        return String.format(PERSON_INTRODUCTION_MESSAGE, name, age);
     }
 
     public String getName() {

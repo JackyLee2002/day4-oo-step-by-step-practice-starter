@@ -12,11 +12,7 @@ public class School {
     }
 
     public void startSchool() {
-        for (Teacher teacher : teachers) {
-            System.out.print(teacher.introduce());
-        }
-        for (Student student : students) {
-            System.out.print(student.introduce());
-        }
+        teachers.stream().map(Teacher::introduce).forEach(System.out::print);
+        students.stream().map(Student::introduce).forEach(System.out::print);
     }
 }

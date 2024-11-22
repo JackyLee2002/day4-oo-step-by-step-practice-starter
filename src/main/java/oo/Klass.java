@@ -56,11 +56,11 @@ public class Klass {
         return leader;
     }
 
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Klass that = (Klass) o;
-        return this.number == that.number;
+    public boolean equals(Object objectToBeCompared) {
+        if (this == objectToBeCompared) return true;
+        if (objectToBeCompared == null || getClass() != objectToBeCompared.getClass()) return false;
+        Klass objectCastedAsKlass = (Klass) objectToBeCompared;
+        return this.number == objectCastedAsKlass.number;
     }
 
     @Override

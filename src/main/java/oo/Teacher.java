@@ -48,7 +48,7 @@ public class Teacher extends Person implements KlassObserver {
     }
 
     public boolean belongsTo(Klass klass) {
-        return !this.klasses.isEmpty() && !Objects.isNull(klass) && this.klasses.contains(klass);
+        return !Objects.isNull(klass) && !this.klasses.isEmpty() && this.klasses.contains(klass);
     }
 
     public boolean isTeaching(Student student) {
